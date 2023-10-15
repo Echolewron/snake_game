@@ -1,11 +1,11 @@
-var canvas;
-var holder;
+// Settings:
+const body_color = [132,222,2];     // Color of the snake in RGB
+const apple_color = [255, 8, 0];    // Color of the apple in RGB
+const background_color = [0, 0, 0]; // Color of the background in RGB
+const game_cells = 17;      // Width and Height of the play grid
+const start_speed = 7;      // Starting speed of the snake
+const acceleration = 0.03;   // How much speed increases with each apple eaten
 
-const body_color = [132,222,2];
-const apple_color = [255, 8, 0];
-const background_color = [0, 0, 0];
-const game_cells = 17;
-const frame_rate = 7;
 
 /** Object class of snake_cell
  *  +x : number
@@ -57,6 +57,12 @@ class SnakeBody {
     }
 }
 
+var canvas;
+var holder;
+
+// Current speed of the game
+var speed = 7;
+
 // snake_body stores all cells that belong to the cell body
 // Initially it first two cells
 var snake_body = new SnakeBody;
@@ -96,6 +102,8 @@ function placeApple() {
 
 // Sets game field to default values
 function reset() {
+
+    speed = start_speed;
 
     // Initial (x, y) coords where 2 initial cells will be placed
     // Located at the center
@@ -198,6 +206,7 @@ function move_snake() {
         head.next = new_cell;
         head = new_cell;
         placeApple();
+        speed += acceleration;
 
     // If snake moves without eating an apple
     } else {
@@ -255,7 +264,7 @@ function setup() {
     updateCanvasSize();
 
     // Other setup here: ...
-    frameRate(frame_rate);
+    frameRate(speed);
     reset();
     placeApple();
 }
@@ -265,6 +274,7 @@ function draw() {
     
     move_snake();
     renderCells();
+    frameRate(speed);
 }
 
 // Automatically adjusts size of the canvas when window size changes
