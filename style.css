@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Lexend";
+  src: url("/Lexend-Medium.ttf");
+}
+
+html, body, div, p{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  background-color: rgb(40, 44, 52)
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  /* overflow: hidden; */
+}
+
+header {
+  padding: .5rem;
+  width: 100%;
+  height: 10%;
+
+  box-sizing: border-box;
+}
+
+header p {
+  display: block;
+  width: 100%;
+  font-size: 2rem;
+}
+
+header, footer {
+  text-align: center;
+  font-family: "Lexend", monospace;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  width: 100%;
+  height: 10%;
+}
+
+#sketch-holder {
+  width: 100%;
+  height: 80%;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: rgb(33, 37, 43);
+}
+
+canvas {
+  display: block;
+}
